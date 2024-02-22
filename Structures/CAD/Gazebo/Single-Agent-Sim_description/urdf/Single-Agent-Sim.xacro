@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<robot name="Single-Agent-Sim" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find Single-Agent-Sim_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find Single-Agent-Sim_description)/urdf/Single-Agent-Sim.trans" />
+<xacro:include filename="$(find Single-Agent-Sim_description)/urdf/Single-Agent-Sim.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.00023419068028239352 -0.03986726774182463 0.03436812192011776" rpy="0 0 0"/>
+    <mass value="2.3015175051508576"/>
+    <inertia ixx="0.066489" iyy="0.012905" izz="0.074799" ixy="7.2e-05" iyz="-0.001578" ixz="4.4e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Single-Agent-Sim_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Single-Agent-Sim_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Gimbal_Frame_1">
+  <inertial>
+    <origin xyz="0.0001918603300785599 -0.18467919993148 -0.0008717237909484365" rpy="0 0 0"/>
+    <mass value="0.18406746267827978"/>
+    <inertia ixx="0.001736" iyy="1e-05" izz="0.001735" ixy="1e-06" iyz="-3e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.202132 -0.068" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Single-Agent-Sim_description/meshes/Gimbal_Frame_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.202132 -0.068" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Single-Agent-Sim_description/meshes/Gimbal_Frame_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Actuator_1">
+  <inertial>
+    <origin xyz="0.008262490045735624 -8.671101189672219e-05 -0.0036057781438165737" rpy="0 0 0"/>
+    <mass value="0.3832614322661577"/>
+    <inertia ixx="0.000876" iyy="0.000894" izz="4.8e-05" ixy="-0.0" iyz="-1e-06" ixz="-1.6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.011 -0.000157 -0.068" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Single-Agent-Sim_description/meshes/Actuator_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.011 -0.000157 -0.068" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Single-Agent-Sim_description/meshes/Actuator_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="propeller_9047_1">
+  <inertial>
+    <origin xyz="-3.6756940015032595e-08 2.1953119853934406e-09 0.0036726544337552514" rpy="0 0 0"/>
+    <mass value="0.019532128549241315"/>
+    <inertia ixx="0.0" iyy="5.4e-05" izz="5.4e-05" ixy="-1e-06" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0005 -0.000157 -0.1426" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Single-Agent-Sim_description/meshes/propeller_9047_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0005 -0.000157 -0.1426" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Single-Agent-Sim_description/meshes/propeller_9047_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="propeller_9047_2">
+  <inertial>
+    <origin xyz="0.0004999632430615347 -0.00015699780468806502 -0.07132734556624569" rpy="0 0 0"/>
+    <mass value="0.019532128549241315"/>
+    <inertia ixx="0.0" iyy="5.4e-05" izz="5.4e-05" ixy="-1e-06" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.001 -0.000314 -0.0614" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Single-Agent-Sim_description/meshes/propeller_9047_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.001 -0.000314 -0.0614" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Single-Agent-Sim_description/meshes/propeller_9047_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 1" type="continuous">
+  <origin xyz="0.0 0.202132 0.068" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Gimbal_Frame_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="Revolute 3" type="continuous">
+  <origin xyz="-0.011 -0.201975 0.0" rpy="0 0 0"/>
+  <parent link="Gimbal_Frame_1"/>
+  <child link="Actuator_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 4" type="continuous">
+  <origin xyz="0.0105 0.0 0.0746" rpy="0 0 0"/>
+  <parent link="Actuator_1"/>
+  <child link="propeller_9047_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="Revolute 5" type="continuous">
+  <origin xyz="0.01 0.000157 -0.0066" rpy="0 0 0"/>
+  <parent link="Actuator_1"/>
+  <child link="propeller_9047_2"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+</joint>
+
+</robot>

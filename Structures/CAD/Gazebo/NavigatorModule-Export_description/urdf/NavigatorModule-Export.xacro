@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<robot name="NavigatorModule-Export" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find NavigatorModule-Export_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find NavigatorModule-Export_description)/urdf/NavigatorModule-Export.trans" />
+<xacro:include filename="$(find NavigatorModule-Export_description)/urdf/NavigatorModule-Export.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.023872244589948865 -0.0009500409901555752 0.03522161274068737" rpy="0 0 0"/>
+    <mass value="10.315469377399216"/>
+    <inertia ixx="0.046069" iyy="0.083006" izz="0.110133" ixy="-0.001353" iyz="-0.000136" ixz="-0.003406"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://NavigatorModule-Export_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://NavigatorModule-Export_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+</robot>
